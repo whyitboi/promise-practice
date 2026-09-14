@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 // const isTrue = false;
 
@@ -37,19 +37,17 @@ btn.addEventListener("click", () => {
     "https://api.giphy.com/v1/gifs/translate?api_key=Us5GpUmeXpRsAjGlNW7xDR2tsZx18Ycu&s=" +
       search.value,
   )
-    .then((respone) => {
-      return respone.json();
-    })
-    .then((response) => {
-      img.src = response.data.images.original.url;
-      //   console.log(response.data.images);
-    })
     .then((response) => {
       //checks HTTP valid code 200-299. If it is not any of these
       //an error is thrown
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
+      return response.json();
+    })
+    .then((response) => {
+      img.src = response.data.images.original.url;
+      //   console.log(response.data.images);
     })
     .catch((error) => {
       console.log(error);
