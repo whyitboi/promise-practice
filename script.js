@@ -98,6 +98,11 @@ btn.addEventListener("click", async () => {
   }
 });
 
+async function doubleAfter2Seconds(x) {
+  const response = setTimeout(x * 2, 2000);
+  return response;
+}
+
 // async function getGifs() {
 //   try {
 //     const response = await fetch(
